@@ -1,4 +1,4 @@
-package com.loc.newsapp.ui.theme
+package `in`.bpj4.newsapp.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -15,6 +15,11 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.loc.newsapp.ui.theme.Black
+import com.loc.newsapp.ui.theme.Blue
+import com.loc.newsapp.ui.theme.DarkRed
+import com.loc.newsapp.ui.theme.LightBlack
+import com.loc.newsapp.ui.theme.LightRed
 
 private val DarkColorScheme = darkColorScheme(
     background = Black,

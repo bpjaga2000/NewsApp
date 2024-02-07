@@ -1,4 +1,4 @@
-package com.loc.newsapp.ui.theme
+package `in`.bpj4.newsapp.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
