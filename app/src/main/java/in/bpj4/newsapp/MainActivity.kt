@@ -17,13 +17,18 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import dagger.hilt.android.AndroidEntryPoint
-import `in`.bpj4.newsapp.presentation.navgraph.NavGraph
+import `in`.bpj4.newsapp.data.local.NewsDao
+import `in`.bpj4.newsapp.presentation.news_navigator.NewsNavigator
 import `in`.bpj4.newsapp.ui.theme.NewsAppTheme
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     val viewmodel by viewModels<MainViewModel>()
+
+    @Inject
+    lateinit var newsDao: NewsDao
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -59,8 +64,7 @@ class MainActivity : ComponentActivity() {
                         )
                 }
                 Box(modifier = Modifier.background(MaterialTheme.colorScheme.background)) {
-                    val startDestination = viewmodel.startDestination
-                    NavGraph(startDestination = startDestination)
+                    NewsNavigator()
                 }
             }
         }

@@ -29,9 +29,26 @@ fun ArticlesList(
         ) {
             items(articles.itemCount) { index ->
                 articles[index]?.let {
-                    ArticleCard(article = it, onClick = onClick)
+                    ArticleCard(article = it, onClick = {i -> onClick(i)})
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun ArticlesList(
+    modifier: Modifier = Modifier,
+    articles: List<Article>,
+    onClick: (Article) -> Unit
+) {
+    LazyColumn(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(MediumPadding1),
+        contentPadding = PaddingValues(all = ExtraSmallPadding2)
+    ) {
+        items(articles.size) { index ->
+            ArticleCard(article = articles[index], onClick = {onClick(articles[index])})
         }
     }
 }
